@@ -13,7 +13,7 @@ const SearchPage = () => {
       </SearchNavBar>
       <SearchPageContent>
         <SearchWrapper>
-        <img src={Github} alt='github' />
+        <img style={{ marginBottom: '20px'}} src={Github} alt='github' />
         <SearchField />
         <LoginButton>Search Github</LoginButton>
         </SearchWrapper>
