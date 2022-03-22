@@ -1,24 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Routes as Switch } from 'react-router-dom';
+import Dashboard from './screens/Home';
+import Login from './screens/Login';
+import SearchPage from './screens/Search';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Router>
+        <Switch>
+          <Route path='/' element={<Login />} />
+          
+          <Route path='/auth/search' element={<SearchPage />} />
+          <Route path='/auth/dashboard' element={<Dashboard />} />
+          <Route
+            path="*"
+            element={
+              <main style={{ padding: "1rem" }}>
+                <p>Ouch the route does not exist!</p>
+              </main>
+            }
+          />
+        </Switch>
+      </Router>
     </div>
   );
 }
