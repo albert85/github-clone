@@ -10,5 +10,8 @@ export const LoginButton = styled.a`
   justify-content: center;
   color: white;
   cursor: pointer;
+  font-size: 16px;
   text-decoration: none;
+  font-weight: 700;
+  margin-inline: auto;
 `;
