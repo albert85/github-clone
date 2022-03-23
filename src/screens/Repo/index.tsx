@@ -1,5 +1,4 @@
 import { DashboardContentContainer, PageHeaderText, RepoCardSubTitle, RepoCardTitle, RepoFooter, RepositoryCard } from './style'
-import AppLayout from '../../components/HOC/AppLayout';
 
 const Dashboard = () => {
 
@@ -30,4 +29,4 @@ const Dashboard = () => {
   )
 }
 
-export default AppLayout(Dashboard)
+export default Dashboard

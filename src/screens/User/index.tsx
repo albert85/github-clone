@@ -1,5 +1,4 @@
 import { DashboardContentContainer, PageHeaderText, RepoCardSubTitle, RepoCardTitle, RepoFooter, RepositoryCard } from '../Repo/style'
-import AppLayout from '../../components/HOC/AppLayout';
 import { UserTitleWrapper } from './style';
 
 const UserListPage = () => {
@@ -32,4 +31,4 @@ const UserListPage = () => {
   )
 }
 
-export default AppLayout(UserListPage)
+export default UserListPage

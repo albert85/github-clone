@@ -3,6 +3,7 @@ import Dashboard from './screens/Repo';
 import Login from './screens/Login';
 import SearchPage from './screens/Search';
 import User from './screens/User';
+import AppLayout from './components/HOC/AppLayout';
 
 function App() {
   return (
@@ -10,10 +11,13 @@ function App() {
       <Router>
         <Switch>
           <Route path='/' element={<Login />} />
-          
           <Route path='/auth/search' element={<SearchPage />} />
-          <Route path='/auth/repo' element={<Dashboard />} />
-          <Route path='/auth/user' element={<User />} />
+            <Route path='/auth/repo' element={<AppLayout>
+                <Dashboard />
+              </AppLayout>} />
+            <Route path='/auth/user' element={<AppLayout>
+                <User />
+              </AppLayout>} />
           <Route
             path="*"
             element={

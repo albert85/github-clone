@@ -15,7 +15,7 @@ const SearchPage = () => {
         <SearchWrapper>
         <img style={{ marginBottom: '20px'}} src={Github} alt='github' />
         <SearchField />
-        <LoginButton>Search Github</LoginButton>
+        <LoginButton href='/auth/repo'>Search Github</LoginButton>
         </SearchWrapper>
       </SearchPageContent>
     </SearchPageWrapper>

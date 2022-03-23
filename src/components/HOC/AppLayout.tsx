@@ -2,8 +2,10 @@ import Sidebar from '../Sidebar'
 
 import { DashboardContentContainer, DashboardContentWrapper, DashboardWrapper } from './style'
 import HeaderNav from '../HeaderNav';
+import { useEffect } from 'react';
 
-const AppLayout = (Component: any) => (props: any) => {
+const AppLayout = (props: any) => {
+  useEffect(()=>{},[])
 
   return (
     <div>
@@ -12,7 +14,7 @@ const AppLayout = (Component: any) => (props: any) => {
         <DashboardContentWrapper>
           <Sidebar />
           <DashboardContentContainer>
-            <Component {...props} />
+            {props.children}
           </DashboardContentContainer>
         </DashboardContentWrapper>
       </DashboardWrapper>

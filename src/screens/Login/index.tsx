@@ -1,22 +1,26 @@
 import axios from 'axios'
 import React, { useEffect } from 'react'
-import { useLocation, useParams } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { PageLayout } from '../../components/global/style'
 import { LoginButton } from './style'
 
 const Login = () => {
   const {search} = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if(search){
       const code = search.split('=')[1];
       axios.post('https://9uj0ihoex6.execute-api.eu-west-1.amazonaws.com/dev/auth', { code })
       .then((res) => {
-        console.log(res.data.data.access_token, '*****')
+        const resp = res.data.data.access_token;
+        if(resp){
+          navigate('/auth/search')
+        }
       });
     }
     
-  }, [search])
+  }, [navigate, search])
   
   
   return (
