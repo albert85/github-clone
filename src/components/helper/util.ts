@@ -25,12 +25,14 @@ search(first: 10, query: "${search}", type: ${user}){
 
 interface QueryType {
   queryString: string,
-  after: string | undefined,
+  after?: string | undefined | null,
+  before?: string | undefined | null,
   type: string,
 }
 
-export const OverQuery = ({queryString, after, type}: QueryType) => `
-  search(first: 10, query: "${queryString}", type: ${type}, after: ${after}){
+export const OverallQuery = ({queryString, after, type, before}: QueryType) => `
+{
+  search(first: 10, query: "${queryString}", type: ${type}, after: ${after}, before: ${before}){
     userCount
     repositoryCount
     pageInfo {
@@ -66,4 +68,5 @@ export const OverQuery = ({queryString, after, type}: QueryType) => `
       }
     }
   }
+}
 `

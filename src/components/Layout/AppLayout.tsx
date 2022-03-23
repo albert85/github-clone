@@ -8,7 +8,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 const AppLayout = (props: any) => {
   const location: any = useLocation();
   const navigate = useNavigate();
-  
+
   const [search, setSearch] = useState<String | undefined>(location?.state?.query)
   
   useEffect(()=>{
@@ -26,7 +26,7 @@ const AppLayout = (props: any) => {
         <DashboardContentWrapper>
           <Sidebar />
           <DashboardContentContainer>
-            {props.children({search,})}
+            {props.children({search})}
           </DashboardContentContainer>
         </DashboardContentWrapper>
       </DashboardWrapper>

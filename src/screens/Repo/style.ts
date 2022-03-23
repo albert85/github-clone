@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const DashboardContentContainer = styled.div`
   width: 100%;
+  padding-bottom: 30px;
 `;
 
 export const PageHeaderText = styled.p`
@@ -42,3 +43,7 @@ export const RepoFooter = styled.div`
   }
 `;
 
+export const RepoCardWrapper = styled.div`
+  height: 80vh;
+  overflow: scroll;
+`
