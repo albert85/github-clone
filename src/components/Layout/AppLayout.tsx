@@ -8,6 +8,8 @@ import { useLocation, useNavigate } from 'react-router-dom';
 const AppLayout = (props: any) => {
   const location: any = useLocation();
   const navigate = useNavigate();
+  const [userCount, setUserCount] = useState<number>(0)
+  const [repoCount, setRepoCount] = useState(0)
 
   const [search, setSearch] = useState<String | undefined>(location?.state?.query)
   
@@ -24,9 +26,9 @@ const AppLayout = (props: any) => {
       <HeaderNav />
       <DashboardWrapper>
         <DashboardContentWrapper>
-          <Sidebar />
+          <Sidebar userCount={userCount} repoCount={repoCount} />
           <DashboardContentContainer>
-            {props.children({search})}
+            {props.children({search, setUserCount, setRepoCount})}
           </DashboardContentContainer>
         </DashboardContentWrapper>
       </DashboardWrapper>

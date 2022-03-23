@@ -43,14 +43,14 @@ React.useEffect(()=>{
   .then((res) => res.json())
   .then((resp) => {
     const data = resp?.data?.search;
-    console.log(resp)
     setTotalItemsCount(data?.repositoryCount);
     setEndCursor(data?.pageInfo?.endCursor);
     const repo = data?.edges?.map((edge: any) => edge?.node)
     storeRepository(repo);
+    props.setRepoCount(data?.repositoryCount)
     setLoading(false);
   })
-},[page, token, paginateBefore, paginateAfter])
+},[page, token, paginateBefore, paginateAfter, props.search, props])
 
 const handleChange = (e: number) => {
   setPage(e);

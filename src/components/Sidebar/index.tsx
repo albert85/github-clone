@@ -2,7 +2,10 @@ import React from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { MenuTitle, SideMenuBadge, SideMenuContainer, SideMenuSelectContainer } from './style'
 
-const Sidebar = () => {
+const Sidebar = ({
+  userCount,
+  repoCount
+}: { userCount: number, repoCount: number}) => {
   const navigate = useNavigate();
   const {pathname} = useLocation();
 
@@ -21,8 +24,8 @@ const Sidebar = () => {
     <div>
        <SideMenuContainer>
           <div>
-           <RenderMenuContainer bgColor={pathname.includes('/repo') ? '#F7F7F8': 'transparent'} onClick={() => navigate('/auth/repo')} title="Repository" amt='429k' />
-           <RenderMenuContainer bgColor={pathname.includes('/user') ? '#F7F7F8': 'transparent'} onClick={() => navigate('/auth/user')} title="User" amt='429k' />
+           <RenderMenuContainer bgColor={pathname.includes('/repo') ? '#F7F7F8': 'transparent'} onClick={() => navigate('/auth/repo')} title="Repository" amt={repoCount} />
+           <RenderMenuContainer bgColor={pathname.includes('/user') ? '#F7F7F8': 'transparent'} onClick={() => navigate('/auth/user')} title="User" amt={userCount} />
           </div>
         </SideMenuContainer>
     </div>

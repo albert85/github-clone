@@ -37,24 +37,24 @@ React.useEffect(()=>{
   .then((res) => res.json())
   .then((resp) => {
     const data = resp?.data?.search;
-    console.log(resp)
     setTotalItemsCount(data?.userCount);
     setEndCursor(data?.pageInfo?.endCursor);
     const repo = data?.edges?.map((edge: any) => edge?.node)
     storeUsers(repo);
+    props.setUserCount(data?.userCount)
     setLoading(false);
   })
-},[page, token, paginateBefore, paginateAfter, props.search])
+},[page, token, paginateBefore, paginateAfter, props.search, props])
 
   const RenderUserCard = ({bio, company, name}: UserType)  => {
     return (
       <RepositoryCard>
         <UserTitleWrapper>
-          <RepoCardTitle>{name}</RepoCardTitle>
-          <RepoCardSubTitle>{company}</RepoCardSubTitle>
+          <RepoCardTitle>{((name && name !== "undefined") && name) || 'N/A'}</RepoCardTitle>
+          {(company && company !== "null" && company !=="undefined") && (<RepoCardSubTitle>{company}</RepoCardSubTitle>)}
         </UserTitleWrapper>
         <RepoFooter>
-          <p>{bio}</p>
+          {(bio && bio !== "undefined") && (<p>{bio}</p>)}
         </RepoFooter>
       </RepositoryCard>
     );
@@ -84,10 +84,8 @@ React.useEffect(()=>{
             users?.map((e: any) => ( 
               <RenderUserCard
               name={e?.name}
-              star={e?.stargazers?.totalCount}
-              lang={e?.languages?.edges[0]?.node?.name}
-              license={e?.licenseInfo?.name}
-              update={e?.updatedAt?.toLocaleString()}
+              bio={e?.bio}
+              company={e?.company}
               />)
               )
           )
