@@ -2,10 +2,22 @@ import Sidebar from '../Sidebar'
 
 import { DashboardContentContainer, DashboardContentWrapper, DashboardWrapper } from './style'
 import HeaderNav from '../HeaderNav';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const AppLayout = (props: any) => {
-  useEffect(()=>{},[])
+  const location: any = useLocation();
+  const navigate = useNavigate();
+  
+  const [search, setSearch] = useState<String | undefined>(location?.state?.query)
+  
+  useEffect(()=>{
+    const token = localStorage.getItem('@githubToken');
+
+    if(!token){
+      return navigate('/')
+    }
+  },[navigate])
 
   return (
     <div>
@@ -14,7 +26,7 @@ const AppLayout = (props: any) => {
         <DashboardContentWrapper>
           <Sidebar />
           <DashboardContentContainer>
-            {props.children}
+            {props.children(search)}
           </DashboardContentContainer>
         </DashboardContentWrapper>
       </DashboardWrapper>

@@ -7,6 +7,7 @@ interface SearchType {
   width?: string,
   height?: string,
   placeholder?: string,
+  onChange?: React.ChangeEventHandler<HTMLInputElement> | undefined,
   searchIconStyle?:{
     right?: string,
     top?: string
@@ -19,11 +20,12 @@ const SearchField = ({
   height,
   placeholder,
   searchIconStyle,
+  onChange,
   ...rest }: SearchType) => {
   return (
     <SearchBarWrapper marginBottom={marginBottom}>
       <SearchIcon style={searchIconStyle} src={SearchIconLogo} alt='seach_icon' />
-      <SearchInput placeholder={placeholder} height={height} width={width} type='text' {...rest} />
+      <SearchInput onChange={onChange} placeholder={placeholder} height={height} width={width} type='text' {...rest} />
     </SearchBarWrapper>
   )
 }

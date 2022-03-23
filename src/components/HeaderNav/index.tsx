@@ -1,6 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import { HomeNavBarWrapper, InnerNavBarContainer } from '../HOC/style'
+import { HomeNavBarWrapper, InnerNavBarContainer } from '../Layout/style'
 import NavDropdown from '../NavDropdown'
 import SearchField from '../SeachBar'
 import Github from '../../assets/github_logo.png';

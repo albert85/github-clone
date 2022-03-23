@@ -1,6 +1,6 @@
 import { DashboardContentContainer, PageHeaderText, RepoCardSubTitle, RepoCardTitle, RepoFooter, RepositoryCard } from './style'
 
-const Dashboard = () => {
+const Dashboard = (props: any) => {
 
   const RenderRepositoryCard = () => {
     return (

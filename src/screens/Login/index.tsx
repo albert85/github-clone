@@ -15,6 +15,7 @@ const Login = () => {
       .then((res) => {
         const resp = res.data.data.access_token;
         if(resp){
+          localStorage.setItem('@githubToken', resp);
           navigate('/auth/search')
         }
       });

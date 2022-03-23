@@ -17,7 +17,9 @@ const NavDropdown = () => {
       <DropdownWrapper>
         <DropdownIconContainerImage onClick={handleViewDropdown} src={DropdownIcon} alt='dropdown' />
         {open && (<DropdownOptionWrapper>
-          <p style={{ color: '#FF1733'}}>Logout</p>
+          <p onClick={()=> {
+            localStorage.clear();
+          }} style={{ color: '#FF1733'}}>Logout</p>
         </DropdownOptionWrapper>)}
       </DropdownWrapper>
     </NavDropdownWrapper>
