@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
-import { DropdownIconContainerImage, DropdownOptionWrapper, DropdownWrapper, NavDropdownWrapper, UserImage } from './style'
+import { DropdownIconContainerImage, DropdownOptionWrapper, DropdownWrapper, NavDropdownWrapper, SelectedMenu, UserImage } from './style'
 import DropdownIcon from '../../assets/dropdown_icon.png';
+import { useNavigate } from 'react-router-dom';
 
 
 const NavDropdown = () => {
+  const navigate = useNavigate();
   const [open, setOpen] = useState<boolean>(false);
 
   const handleViewDropdown = () => {
@@ -17,9 +19,13 @@ const NavDropdown = () => {
       <DropdownWrapper>
         <DropdownIconContainerImage onClick={handleViewDropdown} src={DropdownIcon} alt='dropdown' />
         {open && (<DropdownOptionWrapper>
-          <p onClick={()=> {
+          
+          <SelectedMenu onClick={()=> {
             localStorage.clear();
-          }} style={{ color: '#FF1733'}}>Logout</p>
+            navigate('/');
+          }}>
+            <p>Logout</p>
+          </SelectedMenu>
         </DropdownOptionWrapper>)}
       </DropdownWrapper>
     </NavDropdownWrapper>

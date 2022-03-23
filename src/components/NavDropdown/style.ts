@@ -33,3 +33,11 @@ export const DropdownOptionWrapper = styled.div`
   top: 100%;
   padding-left: 37px;
 `;
+
+export const SelectedMenu = styled.div`
+  cursor: pointer;
+  
+  p {
+    color: #FF1733
+  }
+`;
