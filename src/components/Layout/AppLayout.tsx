@@ -26,7 +26,7 @@ const AppLayout = (props: any) => {
         <DashboardContentWrapper>
           <Sidebar />
           <DashboardContentContainer>
-            {props.children(search)}
+            {props.children({search,})}
           </DashboardContentContainer>
         </DashboardContentWrapper>
       </DashboardWrapper>

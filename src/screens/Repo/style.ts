@@ -11,7 +11,6 @@ export const PageHeaderText = styled.p`
 `;
 
 export const RepositoryCard = styled.div`
-  width: 100%;
   padding: 20px;
   background: #FFFFFF;
   box-shadow: 0px 6px 58px rgba(196, 203, 214, 0.1);
@@ -42,3 +41,4 @@ export const RepoFooter = styled.div`
     font-size: 12px;
   }
 `;
+
